@@ -30,7 +30,7 @@ jobs:
         draft: false
         prerelease: false
     - name: Upload binary
-      id: upload-release-asset
+      id: upload-release-asset-binary
       uses: actions/upload-release-asset@v1.0.1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -40,7 +40,7 @@ jobs:
         asset_name: node-${{ env.NODE_VERSION }}-linux-x64.tar.xz
         asset_content_type: application/x-xz
     - name: Upload SHASUMS256.txt
-      id: upload-release-asset
+      id: upload-release-asset-shasums
       uses: actions/upload-release-asset@v1.0.1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
