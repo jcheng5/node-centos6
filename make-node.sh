@@ -1,5 +1,8 @@
 #!/bin/sh
 
+set -e
+set -x
+
 NODE_VERSION=v12.14.0
 
 NODE_DIR=node-${NODE_VERSION}
@@ -12,4 +15,4 @@ cd ${NODE_DIR}
 export CPPFLAGS=-D__STDC_FORMAT_MACROS
 export LDFLAGS=-lrt
 scl enable devtoolset-7 python27 ./configure
-scl enable devtoolset-7 python27 make -j`nproc`
+scl enable devtoolset-7 python27 "make -j$(nproc)"
