@@ -30,7 +30,7 @@ jobs:
         draft: false
         prerelease: false
     - name: Upload binary
-      id: upload-release-asset-binary
+      id: upload-release-asset-xz
       uses: actions/upload-release-asset@v1.0.1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -39,6 +39,16 @@ jobs:
         asset_path: ./node-${{ env.NODE_VERSION }}/node-${{ env.NODE_VERSION }}-linux-x64.tar.xz
         asset_name: node-${{ env.NODE_VERSION }}-linux-x64.tar.xz
         asset_content_type: application/x-xz
+    - name: Upload binary
+      id: upload-release-asset-gz
+      uses: actions/upload-release-asset@v1.0.1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+        asset_path: ./node-${{ env.NODE_VERSION }}/node-${{ env.NODE_VERSION }}-linux-x64.tar.gz
+        asset_name: node-${{ env.NODE_VERSION }}-linux-x64.tar.gz
+        asset_content_type: application/gzip
     - name: Upload SHASUMS256.txt
       id: upload-release-asset-shasums
       uses: actions/upload-release-asset@v1.0.1

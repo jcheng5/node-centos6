@@ -20,4 +20,4 @@ export LDFLAGS=-lrt
 
 scl enable devtoolset-7 python27 ./configure
 scl enable devtoolset-7 python27 "ARCH=x64 make -j$(nproc) binary"
-sha256sum node-${NODE_VERSION}-linux-x64.tar.xz > SHASUMS256.txt
+sha256sum node-${NODE_VERSION}-linux-x64.tar.xz node-${NODE_VERSION}-linux-x64.tar.gz > SHASUMS256.txt
