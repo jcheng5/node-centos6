@@ -9,4 +9,4 @@ RUN yum -y install xz
 
 COPY make-node.sh /make-node.sh
 
-ENTRYPOINT [ "/bin/bash", "/make-node.sh" ]
+ENTRYPOINT [ "/make-node.sh" ]

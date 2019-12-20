@@ -1,5 +1,11 @@
 name: 'Build Node.js'
 description: 'Build Node.js'
+inputs:
+  node_version:
+    description: 'The version of Node.js to build, e.g. "v12.14.0"'
+    required: true
 runs:
   using: 'docker'
   image: 'Dockerfile'
+  args:
+    - ${{ inputs.node_version }}
