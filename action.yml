@@ -1,8 +1,5 @@
 name: 'Build Node.js'
 description: 'Build Node.js'
-inputs:
-outputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args:
