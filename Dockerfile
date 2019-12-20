@@ -7,4 +7,4 @@ RUN yum -y install devtoolset-7
 
 COPY make-node.sh /make-node.sh
 
-ENTRYPOINT [ "/usr/bin/scl", "enable", "devtoolset-7", "python27", "/bin/bash make-node.sh" ]
+ENTRYPOINT [ "/bin/bash /make-node.sh" ]

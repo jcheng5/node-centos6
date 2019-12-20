@@ -9,11 +9,7 @@ jobs:
       image: centos:centos6
     steps:
     - uses: actions/checkout@v2
+    - uses: ./
     - name: Run a multi-line script
       run: |
-        yum -y install centos-release-scl
-        yum -y install python27
-        yum -y install devtoolset-7
-        ls -l
-        scl enable python27 devtoolset-7 "/bin/bash ./make-node.sh"
         ls -l
