@@ -1,7 +1,8 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 
-try {
+async function main() {
+  try {
     const token = core.getInput('repo-token');
     const octokit = new github.GitHub(token);
 
@@ -21,3 +22,6 @@ try {
   } catch (error) {
     core.setFailed(error.message);
   }
+}
+
+main();
