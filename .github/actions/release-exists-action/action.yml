@@ -1,0 +1,15 @@
+name: 'Release exists?'
+description: 'Check if release exists'
+inputs:
+  repo-token:
+    description: 'The secrets.GITHUB_TOKEN'
+    required: true
+  tag:
+    description: 'The tag of the release to check for'
+    required: true
+outputs:
+  exists:
+    description: 'Whether the tag has a release or not'
+runs:
+  using: node12
+  main: main.js
